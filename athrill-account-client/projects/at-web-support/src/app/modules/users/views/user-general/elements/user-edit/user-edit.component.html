@@ -1,0 +1,41 @@
+<at-assets-add-edit-dialog
+    [title]="'Update Registered User'"
+>
+    <at-assets-loader *ngIf="showLoader"></at-assets-loader>
+    <at-assets-form
+        #atForm
+        [isValid]="isValid()"
+        [subscription]="processForm()"
+        (onProcess)="processProcessing($event)"
+        (onSubmission)="processSubmission($event)"
+        (onSuccess)="processSuccess($event)"
+        (onFailure)="processFailure($event)"
+        (onCancel)="processCancel($event)"
+    > 
+    <div class="form-group">
+        <at-assets-input-select
+            #Role
+            label="Role"
+            name="UserRoleId"
+            [(ngModel)]="activeModel.UserRoleId"
+            [required]="true"
+            [data]="UserRoles"
+            [textField]="'DisplayName'"
+            [valueField]="'Id'"
+        >
+        </at-assets-input-select>
+        <at-assets-input-error *ngIf="atForm.form.submitted && Role.model.invalid &&  Role.model.errors.required">
+            Role is required.
+        </at-assets-input-error>
+    </div>
+    <div class="form-group">
+        <at-assets-input-checkbox
+            #IsActive
+            label="Active Status"
+            name="IsActive"
+            [(ngModel)]="activeModel.IsActive"
+        >
+        </at-assets-input-checkbox>
+    </div>
+    </at-assets-form>
+</at-assets-add-edit-dialog>

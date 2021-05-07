@@ -1,0 +1,71 @@
+$at-darkblue: (
+    50: #e7eaf0,
+    100: #c1cada,
+    200: #9aa8c1,
+    300: #7487a7,
+    400: #576d96,
+    500: #385587,
+    600: #324e7f,
+    700: #2a4473,
+    800: #233b66,
+    900: #1b2a4e,
+    A100: #1b2a4e,
+    A200: #1b2a4e,
+    A400: #1b2a4e,
+    A700: #1b2a4e,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #ffffff,
+        A200: #ffffff,
+        A400: #ffffff,
+        A700: #ffffff,
+    ),
+);
+$at-darkblue-light : 500;
+$at-darkblue-default : 900;
+$at-darkblue-dark : 900;
+
+$at-brown: (
+    50: #f0ebd7,
+    100: #d6cbb3, 
+    200: #b6a88c, 
+    300: #958665, 
+    400: #7d6d47, 
+    500: #655529, 
+    600: #5b4b23, 
+    700: #4e3f1b, 
+    800: #423213, 
+    900: #352406, 
+    A100: #352406, 
+    A200: #352406, 
+    A400: #352406, 
+    A700: #352406, 
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #ffffff,
+        A200: #ffffff,
+        A400: #ffffff,
+        A700: #ffffff,
+    ),
+);
+$at-brown-light : 100;
+$at-brown-default : 500;
+$at-brown-dark : 700;

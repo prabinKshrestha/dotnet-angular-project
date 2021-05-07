@@ -1,0 +1,13 @@
+<mat-card class="mat-tree-dnd-wrapper">
+    <ng-container *ngIf="nodesToProcess.length > 0 && displayField && childrenField" >
+        <tree-root 
+            [nodes]="nodesToProcess" 
+            [options]="dragAndDropOptions" 
+            (moveNode)="onMoveNode($event)"
+        >
+            <ng-template #treeNodeTemplate let-node>
+                <ng-container *ngTemplateOutlet="treeDNDItem; context: { node: node }"></ng-container>
+            </ng-template>
+        </tree-root>
+    </ng-container>
+</mat-card>

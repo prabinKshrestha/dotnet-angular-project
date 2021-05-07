@@ -1,0 +1,169 @@
+<at-assets-add-edit-dialog
+    [title]="isAdd ? 'Add Content' : 'Edit Content'"
+>
+    <at-assets-loader *ngIf="showLoader"></at-assets-loader>
+    <at-assets-form
+        #atForm
+        [isValid]="isValid()"
+        [subscription]="processForm()"
+        (onProcess)="processProcessing($event)"
+        (onSubmission)="processSubmission($event)"
+        (onSuccess)="processSuccess($event)"
+        (onFailure)="processFailure($event)"
+        (onCancel)="processCancel($event)"
+    >
+        <div class="form-group">
+            <at-assets-input-text
+                #Name
+                label="Name"
+                name="Name"
+                [(ngModel)]="activeModel.Name"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Name.model.invalid &&  Name.model.errors.required">
+                Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SubName
+                label="Sub Name"
+                name="SubName"
+                [(ngModel)]="activeModel.SubName"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && SubName.model.invalid &&  SubName.model.errors.required">
+                Sub Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Slug
+                label="Slug"
+                name="Slug"
+                [(ngModel)]="activeModel.Slug"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-select
+                #ContentTypeId
+                label="Content Type"
+                name="ContentTypeId"
+                [(ngModel)]="activeModel.ContentTypeId"
+                [required]="true"
+                [data]="contentTypes"
+                [textField]="'DisplayName'"
+                [valueField]="'Id'"
+            >
+            </at-assets-input-select>
+            <at-assets-input-error *ngIf="atForm.form.submitted && ContentTypeId.model.invalid &&  ContentTypeId.model.errors.required">
+                Content Type is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-select
+                #PlacementId
+                label="Placement"
+                name="PlacementId"
+                [(ngModel)]="activeModel.PlacementId"
+                [data]="contentPlacements"
+                [textField]="'DisplayName'"
+                [valueField]="'Id'"
+                [required]="true"
+            >
+            </at-assets-input-select>
+            <at-assets-input-error *ngIf="atForm.form.submitted && PlacementId.model.invalid &&  PlacementId.model.errors.required">
+                Placement is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-select
+                #ParentId
+                label="Parent"
+                name="ParentId"
+                [(ngModel)]="activeModel.ParentId"
+                [data]="contentParents"
+                [textField]="'Name'"
+                [valueField]="'Id'"
+            >
+            </at-assets-input-select>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #ExternalUrl
+                label="External Url"
+                name="ExternalUrl"
+                [(ngModel)]="activeModel.ExternalUrl"
+                [maxLength]="400"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #FontAwesomeIcon
+                label="Icon"
+                name="FontAwesomeIcon"
+                [(ngModel)]="activeModel.FontAwesomeIcon"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #ImageAltName
+                label="Image Alternative Name"
+                name="ImageAltName"
+                [(ngModel)]="activeModel.Name"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-file
+                #file
+                label="Image"
+                name="Image"
+                [existingFile]="data.ImageName"
+                [(atFileModel)]="activeModel.ImageFile"
+                [(isFileChanged)]="activeModel.IsImageChanged"
+                [accept]="'image/*'"
+            >
+            </at-assets-input-file>
+        </div>
+        <div class="form-group">
+            <at-assets-input-checkbox
+                #IsPublished
+                label="Published Status"
+                name="IsPublished"
+                [(ngModel)]="activeModel.IsPublished"
+            >
+            </at-assets-input-checkbox>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #ShortDescription
+                label="Short Description"
+                name="ShortDescription"
+                [(ngModel)]="activeModel.ShortDescription"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+        </div>
+        <div class="form-group">
+            <at-assets-input-wysiwyg
+                #Description
+                label="Description"
+                name="Description"
+                placeholder="Enter Dynamic Content"
+                [(ngModel)]="activeModel.Description"
+            >
+            </at-assets-input-wysiwyg>
+        </div>
+    </at-assets-form>
+</at-assets-add-edit-dialog>

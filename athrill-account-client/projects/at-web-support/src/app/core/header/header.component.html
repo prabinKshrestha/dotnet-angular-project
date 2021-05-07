@@ -1,0 +1,50 @@
+<mat-toolbar color="primary" class="toolbar">
+    <at-assets-button-icon
+        [icon]="'menu'"
+        [title]="'Toggle Menu'"
+        (onClick)="toggleSidebarNavigation()"
+    >
+    </at-assets-button-icon>
+    <h5 class="app-name">
+        <a [routerLink]="['/']">
+            Athrill Account
+        </a>
+    </h5>
+    <div class="spacer"></div>
+    <at-assets-button-icon
+        [icon] = "'person'"
+        [title] = "'Profile'"
+        [matMenuTriggerFor]="profileMenu" 
+    >
+    </at-assets-button-icon>
+    <at-assets-button-icon
+        [icon] = "'invert_colors'"
+        [title] = "'Theme'"
+        [matMenuTriggerFor]="themeMenu" 
+    >
+    </at-assets-button-icon>
+</mat-toolbar>
+<mat-menu #profileMenu="matMenu" class="header-profile-dropdown">
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="['/profile/general']"  class="dropdown-item">
+            <at-assets-icon-fa [icon]="'fa fa-clipboard-check'"></at-assets-icon-fa>
+            <span  class="name">Profile</span>
+        </a> 
+        <a mat-list-item (click)="signOut()" class="dropdown-item">
+            <at-assets-icon-fa [icon]="'fa fa-sign-out-alt'"></at-assets-icon-fa>
+            <span  class="name">Logout</span>
+        </a>
+    </mat-nav-list>
+</mat-menu>
+<mat-menu #themeMenu="matMenu" class="header-profile-dropdown">
+    <mat-nav-list>
+        <ng-container  *ngFor="let theme of availableThemes" >
+            <mat-list-item (click)="changeTheme(theme)">
+                <at-assets-icon-fa [icon]="'fa fa-circle'" [style.color]="theme.primaryColor"></at-assets-icon-fa>
+                &nbsp;/&nbsp;
+                <at-assets-icon-fa [icon]="'fa fa-circle'" [style.color]="theme.accentColor"></at-assets-icon-fa>
+                <span  class="name">{{ theme.displayName }}</span>
+            </mat-list-item>
+        </ng-container>
+    </mat-nav-list>
+</mat-menu>

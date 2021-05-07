@@ -1,0 +1,25 @@
+.at-form{
+    .body{
+        padding: 15px 20px;
+    }
+}
+.mat-dialog-actions {
+    margin: 0;
+    padding: 15px 0;
+    margin-right: 20px;
+    at-assets-button-text{
+        margin-left: 15px;
+    }
+}
+::ng-deep {
+    .mat-dialog-container {
+        .mat-dialog-content {
+            .detail-content{
+                .at-form{
+                    max-height: 65vh;
+                    overflow: auto;
+                }
+            }
+        }
+    }
+}

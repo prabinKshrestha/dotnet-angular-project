@@ -1,0 +1,16 @@
+<mat-form-field appearance="fill" class="at-input-text">
+    <mat-label>{{ label }}</mat-label>
+    <input 
+        #input="ngModel"
+        matInput 
+        [name]="name"
+        [(ngModel)]="value" 
+        [required]="required" 
+        [maxlength]="maxLength"
+        [email]="isEmail"
+        [disabled]="disabled"
+        type="{{ inputType }}"
+        [placeholder]="placeholder ? placeholder : label">
+    <mat-hint *ngIf="hint" align="start">{{ hint }}</mat-hint>
+    <mat-hint *ngIf="showLengthCountHint && maxLength" align="end">{{input.value?.length || 0}} / {{ maxLength }}</mat-hint>
+</mat-form-field>

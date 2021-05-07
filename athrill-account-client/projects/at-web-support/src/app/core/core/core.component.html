@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [mode]="'over'" class="sidenav">
+        <div class="drawer-header-section">
+            <div class="image-logo">
+				<img class="image" [src]=" user?.Image | atNetworkImage " />
+            </div>
+            <div class="personal-information">
+                <p>
+                    <a [routerLink]="['/profile/general']">
+                        {{ user?.FullName }}
+                    </a>
+                </p>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="sidenav-content">
+            <at-sidebar></at-sidebar>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <at-header (toggleSidebar)="sidenav.toggle()"></at-header>
+        <div class="main-container">
+            <!-- TODO : this should be implemented and should avoid double loader scenarios -->
+            <!-- <at-assets-loader *ngIf="isContentLoading"></at-assets-loader> -->
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

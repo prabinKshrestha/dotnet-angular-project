@@ -1,0 +1,19 @@
+<div class="wrapper" [ngClass]="{ 'ng-invalid' : invalid, 'ng-invalid-touched' : invalid && angularEditor.touched }">
+    <div class="label">
+        {{ label }}
+        <span *ngIf="required" class="asterisk">*</span>
+    </div>
+    <div class="body">
+        <angular-editor 
+            #angularEditor
+            [id]="name"
+            [placeholder]="placeholder" 
+            [(ngModel)]="value"
+        >
+        </angular-editor>
+    </div>
+    <div class="footer">
+        <!-- TODO: Implement this -->
+        <!-- <mat-hint *ngIf="showLengthCountHint && maxLength" align="end">{{ value?.length || 0 }} / {{ maxLength }}</mat-hint> -->
+    </div>
+</div>

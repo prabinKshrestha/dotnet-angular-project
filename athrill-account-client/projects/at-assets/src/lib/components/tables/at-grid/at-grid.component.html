@@ -1,0 +1,55 @@
+<div class="grid-wrapper">
+    <div class="grid-header">
+		<at-assets-filter
+			[filterItems]="filterItems"
+            [userFilterItems]="userFilterItems"
+			(onSave)="onSaveFilterItems($event)"
+			(onClear)="onClearFilterItems()"
+		>
+        </at-assets-filter>
+		<at-assets-sort
+			[items]="sortItems"
+			(onSave)="onSaveSortItems($event)"
+			(onClear)="onClearSortItems()"
+		>
+		</at-assets-sort>
+		<at-assets-menus [menuItems]="gridMenuItems"></at-assets-menus>
+    </div>
+    <mat-card>
+        <mat-card-content>
+            <ng-content></ng-content>
+            <table 
+                mat-table 
+                [dataSource]="dataSource"
+            >
+                <tr 
+                    mat-header-row 
+                    *matHeaderRowDef="displayedColumns;sticky: true">
+                </tr>
+                <tr 
+                    mat-row 
+                    class="grid-row" 
+                    *matRowDef="let row; columns: displayedColumns;" 
+                    [ngClass]="{ 'selected': isRowSelected(row)}"
+                    (click)="onRowSelection(row)"
+                    (dblclick)="onDblClick(row)" >
+                </tr>
+            </table>
+            <p class="no-record-message" *ngIf="data.length == 0">
+                There are no records to show.
+            </p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-footer *ngIf="hasPagination">
+            <mat-paginator 
+                [pageSizeOptions]="pageSizeOptions"
+                [color]="paginatorColor"
+                [pageIndex]="pageIndex"
+                [pageSize]="pageSize"
+                [length]="totalDataCount"
+                (page)="onPaginatorEvent($event)"
+            >
+            </mat-paginator>
+        </mat-card-footer>
+    </mat-card>
+</div>

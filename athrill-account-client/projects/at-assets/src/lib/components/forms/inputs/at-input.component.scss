@@ -1,0 +1,58 @@
+::ng-deep {
+    .at-input-datepicker,
+    .at-input-multi-select,
+    .at-input-textarea,
+    .at-input-file,
+    .at-input-select,
+    .at-input-number,
+    .at-input-text {
+        width: 100%;
+        .mat-form-field-flex {
+            background-color: unset !important;
+            &:hover {
+                //TODO: fetch this color from theme variable
+                background-color: rgba($color: #000000, $alpha: 0.04);
+            }
+        }
+    }
+    .at-input-file {
+        .mat-form-field-flex {
+            .mat-form-field-suffix {
+                width: fit-content;
+                .suffix {
+                    display: flex;
+                }
+            }
+        }
+    }
+    .at-input-textarea {
+        .mat-form-field-flex {
+            .at-textarea {
+                &.non-auto-size {
+                    height: unset !important;
+                    margin: 0;
+                }
+                &.auto-size {
+                    max-height: unset !important;
+                }
+            }
+        }
+    }
+    .checkbox-form-field {
+        padding: 15px 10px;
+        &:hover {
+            //TODO: fetch this color from theme variable
+            background-color: rgba($color: #000000, $alpha: 0.04);
+        }
+        .mat-checkbox-inner-container {
+            margin-right: 10px;
+        }
+    }
+}
+
+.at-input-error{
+    margin-left: 11px;
+    font-size: 80%;
+    margin-top: -16px;
+    margin-bottom: 10px;
+}

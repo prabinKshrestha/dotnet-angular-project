@@ -1,0 +1,64 @@
+<at-assets-content-layout [title]="'Content List'">
+
+	<ng-template #headerRightContents>
+		<at-assets-button-icon 
+			[title]="'Add Content'" 
+			[icon]="'add'"
+			[color]="'accent'"
+			(onClick)="onAddItem()">
+		</at-assets-button-icon>
+		<at-assets-menus [menuItems]="moreActions"></at-assets-menus>
+	</ng-template>
+
+	<at-assets-grid
+		[hasPagination]="true"
+		[displayedColumns]="displayedColumns"
+		[gridDataSource]="gridDataSource"
+		[gridState]="gridState"
+		[defaultGridState]="defaultGridState"
+		[sortItems]="sortItems"
+		[filterItems]="filterItems"
+		(onSelection)="onSelection($event)" 
+		(onDoubleClick)="onDoubleClick($event)"
+		(onGridStateChange)="onGridStateChange($event)"
+	>
+
+		<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+
+		<ng-container matColumnDef="Image">
+			<th mat-header-cell *matHeaderCellDef> Image </th>
+			<td mat-cell *matCellDef="let row"> 
+				<div class="grid-image-container" *ngIf="row.ImageName">
+					<img src="{{ row.Image | atNetworkImage  }}" class="grid-image" />	 
+				</div>
+			</td>
+		</ng-container>
+
+		<ng-container matColumnDef="Name">
+			<th mat-header-cell *matHeaderCellDef> Name </th>
+			<td mat-cell *matCellDef="let row"> {{ row.Name }} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="ContentType">
+			<th mat-header-cell *matHeaderCellDef> Content Type </th>
+			<td mat-cell *matCellDef="let row"> {{ row.ContentType?.DisplayName }} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="Parent">
+			<th mat-header-cell *matHeaderCellDef> Parent </th>
+			<td mat-cell *matCellDef="let row"> {{ row.Parent?.Name }} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="Slug">
+			<th mat-header-cell *matHeaderCellDef> Slug </th>
+			<td mat-cell *matCellDef="let row"> {{ row.Slug }} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="IsPublished">
+			<th mat-header-cell *matHeaderCellDef> Publish Status </th>
+			<td mat-cell *matCellDef="let row"> {{row.IsPublished ? "Yes" : "No"}} </td>
+		</ng-container>
+
+	</at-assets-grid>
+
+</at-assets-content-layout>

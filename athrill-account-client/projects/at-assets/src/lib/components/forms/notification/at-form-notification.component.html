@@ -1,0 +1,18 @@
+<ng-container *ngIf="hasNotification">
+    <mat-card class="form-footer-notification notifications error" *ngIf="errorExceptions.length > 0 || errorExceptions.length == 0">
+        <p class="title">{{ exception.Message }}</p>
+        <ul class="error-list" *ngIf="errorExceptions.length > 0">
+            <li *ngFor="let error of errorExceptions">
+                {{ error.Message }}
+            </li>
+        </ul>
+    </mat-card>
+    <mat-card class="form-footer-notification notifications warning"  *ngIf="warningExceptions.length > 0">
+        <p class="title">{{ exception.Message }}</p>
+        <ul class="error-list">
+            <li *ngFor="let error of warningExceptions">
+                {{ error.Message }}
+            </li>
+        </ul>
+    </mat-card>
+</ng-container>

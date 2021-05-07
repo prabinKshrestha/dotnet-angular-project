@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-content>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <ng-container *ngFor="let head of headers">
+                        <th [style.width.px]="head.width">
+                            {{ head.label }}
+                        </th>
+                    </ng-container>
+                </thead>
+                <tbody>
+                    <ng-content></ng-content>
+                </tbody>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>

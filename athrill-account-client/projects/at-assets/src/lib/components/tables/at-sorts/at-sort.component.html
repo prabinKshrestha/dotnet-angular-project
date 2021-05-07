@@ -1,0 +1,59 @@
+<at-assets-button-icon
+    *ngIf="sortItems.length > 0"
+    [icon] = "'sort'"
+    [title] = "'Sorts'"
+    [matMenuTriggerFor]="menu" 
+    #matMenuTrigger="matMenuTrigger"
+>
+</at-assets-button-icon>
+<mat-menu #menu="matMenu" class="sort-mat-menu" (closed)="onCloseMatMenu($event)">
+    <ng-container  *ngIf="sortItems.length > 0" >
+        <div class="body">
+                <div cdkDropList (cdkDropListDropped)="drop($event)" class="sort-list">
+                    <div 
+                        *ngFor="let item of sortItems" 
+                        class="sort-item" 
+                        (click)="$event.stopPropagation();"
+                        cdkDrag  
+                    >
+                        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+                        <div class="sorter-defination">
+                            <at-assets-button-icon
+                                class="drag-and-drop-button"
+                                [icon] = "'drag_indicator'"
+                                [title] = "'Drag and Drop'"
+                                [cursor] = "'move'"
+                                cdkDragHandle
+                            >
+                            </at-assets-button-icon>
+                            <mat-checkbox [(ngModel)]="item.isSelected"></mat-checkbox>
+                            <span>{{ item.displayName }}</span>
+                        </div>
+                        <div class="sorter">
+                            <at-assets-button-icon
+                                [icon] = "item.sortDirection == SortDirections.Ascending ? 'arrow_upward' : 'arrow_downward'"
+                                [title] = "item.sortDirection == SortDirections.Ascending ? 'Click to Sort Descending' : 'Click to Sort Ascending'"
+                                (onClick)="toggleSortIcon(item)"
+                            >
+                            </at-assets-button-icon>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="footer"  (click)="$event.stopPropagation();">
+            <at-assets-button-text
+                [classes]="'bg-accent bg-primary-hover'"
+                [type]="'flat'" 
+                [text]="'Sort'"
+                (onClick)="onSaveClick()"
+                style="margin-right: 10px;"
+            >
+            </at-assets-button-text>
+            <at-assets-button-text
+                [text] = "'Default'"
+                (onClick)="onClearClick()"
+            >
+            </at-assets-button-text>
+        </div>
+    </ng-container>
+</mat-menu>

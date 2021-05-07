@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AthrillAccount.Project</name>
+    </assembly>
+    <members>
+        <member name="M:AthrillAccount.Project.Controllers.ATDatas.ATDatasController.GetATDataValuesByType(System.Int32)">
+            <summary>
+             Get ATDatasValues by ATDataType
+            </summary>
+            <returns>List of ATDatas</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.ATLogs.RecordLogController.GetRecordLogs">
+            <summary>
+            Get All Record Logs
+            </summary>
+            <returns>All Record Logs</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.ATLogs.RecordLogController.GetRecordLog(System.Int32)">
+            <summary>
+            Get Record Log
+            </summary>
+            <param name="id"></param>
+            <returns>Single RecordLog</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.ATLogs.RecordLogController.GetLastRecordLog(System.Int32)">
+            <summary>
+            Get Last Record Log
+            </summary>
+            <param name="id"></param>
+            <returns>Single RecordLog</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Authentication.AuthenticationController.SignIn(AT.Model.Authentication.LoginModel)">
+            <summary>
+             Sign In / Log In
+            </summary>
+            <param name="loginModel"></param>
+            <returns>Authentication Response</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Authentication.AuthenticationController.SignOut">
+            <summary>
+             Sign Out / Log Out
+            </summary>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Authentication.AuthenticationController.ResetPassword(AT.Model.Authentication.ResetPasswordModel)">
+            <summary>
+             Reset Password
+            </summary>
+            <param name="resetPasswordModel"></param>
+            <returns>HTTP Response Status</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Authentication.AuthenticationController.ChangePassword(AT.Model.Authentication.ChangePasswordModel)">
+            <summary>
+             Change Password
+            </summary>
+            <param name="changePasswordModel"></param>
+            <returns>HTTP Response Status</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Authentication.AuthenticationController.RegisterUser(AT.Model.Authentication.UserRegistrationModel)">
+            <summary>
+             Register Users
+            </summary>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.GetTeamCategory(System.Int32)">
+            <summary>
+             Get Team Category
+            </summary>
+            <param name="id"></param>
+            <returns>Single Team Category</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.GetTeamCategories">
+            <summary>
+             Get All Team Categories
+            </summary>
+            <returns>All Team Categories</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.AddTeamCategory(AT.Model.Basics.Teams.TeamCategoryAddModel)">
+            <summary>
+             Add Team Category
+            </summary>
+            <returns>Added Team Category</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.UpdateTeamCategory(System.Int32,AT.Model.Basics.Teams.TeamCategoryUpdateModel)">
+            <summary>
+             Update Team Category
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns>Updated Team Category</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.DeleteTeamCategory(System.Int32)">
+            <summary>
+             Delete Team Category
+            </summary>
+            <param name="id"></param>
+            <returns>Updated Team Category</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamCategoryController.UpdateTeamCategoryPosition(System.Collections.Generic.List{System.Int32})">
+            <summary>
+             Update Position
+            </summary>
+            <param name="teamCategoryIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.GetTeamMember(System.Int32)">
+            <summary>
+             Get Team Member
+            </summary>
+            <param name="id"></param>
+            <returns>Single Team Member</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.GetTeamMembers">
+            <summary>
+             Get All Team Members
+            </summary>
+            <returns>All Team Members</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.AddTeamMember(AT.Model.Basics.Teams.TeamMemberAddModel)">
+            <summary>
+             Add Team Member
+            </summary>
+            <returns>Added Team Member</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.UpdateTeamMember(System.Int32,AT.Model.Basics.Teams.TeamMemberUpdateModel)">
+            <summary>
+             Update Team Member
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns>Updated Team Member</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.DeleteTeamMember(System.Int32)">
+            <summary>
+             Delete Team Member
+            </summary>
+            <param name="id"></param>
+            <returns>Updated Team Member</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Basics.Teams.TeamMemberController.UpdateTeamMemberPosition(System.Collections.Generic.List{AT.Entity.Basics.Teams.TeamMemberOrientationUpdateEntityModel})">
+            <summary>
+             Update Position
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.GetContent(System.Int32)">
+            <summary>
+             Get Content
+            </summary>
+            <param name="id"></param>
+            <returns>Single Content</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.GetContents">
+            <summary>
+             Get All Contents
+            </summary>
+            <returns>All Contents</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.AddContent(AT.Model.Contents.ContentAddModel)">
+            <summary>
+             Add Content
+            </summary>
+            <returns>Added Content</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.UpdateContent(System.Int32,AT.Model.Contents.ContentUpdateModel)">
+            <summary>
+             Update Content
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns>Updated Content</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.DeleteContent(System.Int32)">
+            <summary>
+             Delete Content
+            </summary>
+            <param name="id"></param>
+            <returns>Updated Content</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.GetContentTrees">
+            <summary>
+             Get Content Tree Structure
+            </summary>
+            <returns>Content Tree Structure</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.UpdateContentTrees(System.Collections.Generic.List{AT.Entity.Contents.ContentTrees.ContentTree})">
+            <summary>
+             Save Content Tree Structure
+            </summary>
+            <returns>Content Tree Structure</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Contents.ContentController.GetContentAllTypes">
+            <summary>
+             Content Types
+            </summary>
+            <returns>Content Types</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.GetEmailSetting(System.Int32)">
+            <summary>
+             Get Email Setting
+            </summary>
+            <param name="id"></param>
+            <returns>Single Email Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.GetEmailSettings">
+            <summary>
+             Get All Email Settings
+            </summary>
+            <returns>All Email Settings</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.AddEmailSetting(AT.Model.Settings.EmailSettings.EmailSettingAddModel)">
+            <summary>
+             Add Email Setting
+            </summary>
+            <returns>Added Email Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.UpdateEmailSetting(System.Int32,AT.Model.Settings.EmailSettings.EmailSettingUpdateModel)">
+            <summary>
+             Update Email Setting
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns>Updated Email Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.DeleteEmailSetting(System.Int32)">
+            <summary>
+             Delete Email Setting
+            </summary>
+            <param name="id"></param>
+            <returns>Updated Email Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.EmailSettings.EmailSettingController.ChangeDefaultStatus(System.Int32,System.Boolean)">
+            <summary>
+             Change Default Status
+            </summary>
+            <returns>Changed Default Status</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.SiteSettings.SiteSettingController.GetSiteSetting">
+            <summary>
+             Get Site Setting
+            </summary>
+            <returns>Single Site Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Settings.SiteSettings.SiteSettingController.UpdateSiteSetting(AT.Model.Settings.SiteSettings.SiteSettingUpdateModel)">
+            <summary>
+            Update Site Setting
+            </summary>
+            <returns>Returns Site Setting</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.SystemValues.ATEntities.ATEntityController.GetEntity(System.Int32)">
+            <summary>
+            Get Entity
+            </summary>
+            <param name="id"></param>
+            <returns>Single Entity</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.SystemValues.ATEntities.ATEntityController.GetEntities">
+            <summary>
+            Get All Entities
+            </summary>
+            <returns>All Entities</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.GetUser(System.Int32)">
+            <summary>
+             Get User
+            </summary>
+            <param name="id"></param>
+            <returns>Single User</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.GetUsers">
+            <summary>
+             Get All Users
+            </summary>
+            <returns>All Users</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.UpdateUser(System.Int32,AT.Model.Users.UserUpdateModel)">
+            <summary>
+             Update User
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns>Updated User</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.DeleteUser(System.Int32)">
+            <summary>
+             Delete User
+            </summary>
+            <param name="id"></param>
+            <returns>Updated User</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.ChangeActiveStatus(System.Int32,System.Boolean)">
+            <summary>
+             Change Active Status of User
+            </summary>
+            <param name="userid"></param>
+            <param name="activestatus"></param>
+            <returns>HTTP Response Status</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.GetUserTrackRecords">
+            <summary>
+             Get All Users
+            </summary>
+            <returns>All Users</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.GetUserRoles">
+            <summary>
+             Get All User Roles
+            </summary>
+            <returns>All Users</returns>
+        </member>
+        <member name="M:AthrillAccount.Project.Controllers.Users.UserController.UpdateRegisteredUser(System.Int32,AT.Model.Users.UserRegisteredUpdateModel)">
+            <summary>
+             Update Registered User
+            </summary>
+            <param name="userId"></param>
+            <param name="model"></param>
+            <returns>HTTP Response Status</returns>
+        </member>
+    </members>
+</doc>

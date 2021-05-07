@@ -1,0 +1,48 @@
+.mat-card {
+    margin: 15px 20px;
+    padding: 0;
+    .mat-card-content {
+        height: calc(100vh - 190px);
+        overflow-y: hidden;
+        margin: unset;
+        .table-wrapper {
+            height: 100%;
+            overflow-y: auto;
+            table {
+                border-spacing: 0;
+                width: 100%;
+                thead {
+                    th {
+                        position: sticky;
+                        top: 0;
+                        padding: 10px 10px;
+                        border: none;
+                        border-spacing: 0px;
+                        background-color: hsla(0, 0%, 70%, 1); //TODO: fetch this color from theme variable
+                        color: black; //TODO: fetch this color from theme variable
+                        letter-spacing: 0.4px;
+                        font-weight: 550;
+                        font-size: 14px;
+                        text-align: start;
+                        &:not(:first-of-type) {
+                            border-left: 1px solid #fff;
+                        }
+                        &:not(:last-of-type) {
+                            border-right: 1px solid #fff;
+                        }
+                    }
+                }
+                tbody {
+                    ::ng-deep {
+                        tr {
+                            td {
+                                padding: 15px 10px;
+                                border-bottom: 1px solid hsla(0, 0%, 85%, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

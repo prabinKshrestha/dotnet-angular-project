@@ -1,0 +1,100 @@
+@mixin at-theme(
+    $theme,
+    $defaultPrimaryColor: 500,
+    $lightPrimaryColor: 100,
+    $darkPrimaryColor: 900,
+    $defaultAccentColor: 500,
+    $lightAccentColor: 100,
+    $darkAccentColor: 900
+) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    .bg-primary-light,
+    .bg-primary-light-hover:hover {
+        background-color: mat-color($primary, $lightPrimaryColor) !important;
+        color: mat-color($primary, getContrastString($lightPrimaryColor)) !important;
+    }
+
+    .bg-primary,
+    .bg-primary-hover:hover {
+        background-color: mat-color($primary, $defaultPrimaryColor) !important;
+        color: mat-color($primary, getContrastString($defaultPrimaryColor)) !important;
+    }
+
+    .fg-primary,
+    .fg-primary-hover:hover {
+        color: mat-color($accent, $defaultPrimaryColor) !important;
+    }
+
+    .bg-primary-dark,
+    .bg-primary-dark-hover:hover {
+        background-color: mat-color($primary, $darkPrimaryColor) !important;
+        color: mat-color($primary, getContrastString($darkPrimaryColor)) !important;
+    }
+
+    .bg-accent-light,
+    .bg-accent-light-hover:hover {
+        background-color: mat-color($accent, $lightAccentColor) !important;
+        color: mat-color($accent, getContrastString($lightAccentColor)) !important;
+    }
+
+    .bg-accent,
+    .bg-accent-hover:hover {
+        background-color: mat-color($accent, $defaultAccentColor) !important;
+        color: mat-color($accent, getContrastString($defaultAccentColor)) !important;
+    }
+    .fg-accent,
+    .fg-accent-hover:hover {
+        color: mat-color($accent, $defaultAccentColor) !important;
+    }
+
+    .bg-accent-dark,
+    .bg-accent-dark-hover:hover {
+        background-color: mat-color($accent, $darkAccentColor) !important;
+        color: mat-color($accent, getContrastString($darkAccentColor)) !important;
+    }
+
+    --color-primary: #{mat-color($primary, $defaultPrimaryColor)};
+    --color-primary-light: #{mat-color($primary, $lightPrimaryColor)};
+    --color-primary-dark: #{mat-color($primary, $darkPrimaryColor)};
+
+    --color-accent: #{mat-color($accent, $defaultAccentColor)};
+    --color-accent-light: #{mat-color($accent, $lightAccentColor)};
+    --color-accent-dark: #{mat-color($accent, $darkAccentColor)};
+}
+
+@function getContrastString($colorValue) {
+    $result: "";
+    @if $colorValue == 100 {
+        $result: "100-contrast";
+    } @else if $colorValue == 200 {
+        $result: "200-contrast";
+    } @else if $colorValue == 300 {
+        $result: "300-contrast";
+    } @else if $colorValue == 400 {
+        $result: "400-contrast";
+    } @else if $colorValue == 500 {
+        $result: "500-contrast";
+    } @else if $colorValue == 600 {
+        $result: "600-contrast";
+    } @else if $colorValue == 700 {
+        $result: "700-contrast";
+    } @else if $colorValue == 800 {
+        $result: "800-contrast";
+    } @else if $colorValue == 900 {
+        $result: "900-contrast";
+    } @else if $colorValue == A100 {
+        $result: "A100-contrast";
+    } @else if $colorValue == A200 {
+        $result: "A200-contrast";
+    } @else if $colorValue == A400 {
+        $result: "A400-contrast";
+    } @else if $colorValue == A700 {
+        $result: "A700-contrast";
+    }
+    @return $result;
+}

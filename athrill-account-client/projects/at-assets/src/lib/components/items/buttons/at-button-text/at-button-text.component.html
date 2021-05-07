@@ -1,0 +1,58 @@
+<ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'raised'">
+        <button 
+            mat-raised-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            {{ text }}
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchCase="'stroked'">
+        <button 
+            mat-stroked-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            {{ text }}
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchCase="'flat'">
+        <button 
+            mat-flat-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            {{ text }}
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <button 
+            mat-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            {{ text }}
+        </button>
+    </ng-container>
+</ng-container>

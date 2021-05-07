@@ -1,0 +1,14 @@
+<form #atForm="ngForm" novalidate autocomplete="off" >
+    <div class="at-form">
+        <div class="body">
+            <ng-content></ng-content>
+        </div>
+        <div class="footer">
+            <at-assets-form-notification></at-assets-form-notification>
+        </div>
+    </div>
+    <mat-dialog-actions align="end">
+        <at-assets-button-text  [classes]="'bg-accent-dark bg-primary-dark-hover'" [type]="'flat'" [text]="'Save'" [isSubmission]="true" (onClick)="onSaveHandler()"></at-assets-button-text>
+        <at-assets-button-text [text]="'Cancel'" (onClick)="onCancelHandler()"> </at-assets-button-text>
+    </mat-dialog-actions>
+</form>

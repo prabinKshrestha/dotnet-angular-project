@@ -1,0 +1,22 @@
+.content-layout-container {
+    .content-layout-container-header {
+        padding: 0px 25px;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 55px;
+        h2 {
+            margin: unset;
+        }
+        .right{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .content-layout-container-body {    
+        overflow-y: auto;
+        height: calc(100vh - 160px);
+        position: relative;
+    }
+}

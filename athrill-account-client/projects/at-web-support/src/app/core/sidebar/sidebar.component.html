@@ -1,0 +1,27 @@
+<mat-nav-list class="mat-list">
+    <div mat-subheader>System</div>
+    <a mat-list-item [routerLink]="['/users']" routerLinkActive="active">
+        <at-assets-icon-mat icon="supervised_user_circle"></at-assets-icon-mat>
+        <span>Users</span>
+    </a>
+    <a mat-list-item [routerLink]="['/site-settings']" routerLinkActive="active">
+        <at-assets-icon-mat icon="settings"></at-assets-icon-mat>
+        <span>Site Settings</span>
+    </a>
+    <a mat-list-item [routerLink]="['/email-settings']" routerLinkActive="active">
+        <at-assets-icon-mat icon="email"></at-assets-icon-mat>
+        <span>Email Settings</span>
+    </a>
+</mat-nav-list>
+<mat-divider></mat-divider>
+<mat-nav-list class="mat-list">
+    <div mat-subheader>Contents</div>
+    <a mat-list-item [routerLink]="['/contents']" routerLinkActive="active">
+        <at-assets-icon-mat icon="apps"></at-assets-icon-mat>
+        <span>Contents</span>
+    </a>
+    <a mat-list-item [routerLink]="['/teams']" routerLinkActive="active">
+        <at-assets-icon-fa [icon]="'fas fa-users'"></at-assets-icon-fa>
+        <span>Teams</span>
+    </a>
+</mat-nav-list>

@@ -1,0 +1,17 @@
+<at-assets-button-icon
+    *ngIf="menuItems.length > 0"
+    [icon] = "'more_vert'"
+    [title] = "'More Options'"
+    [matMenuTriggerFor]="menu" 
+>
+</at-assets-button-icon>
+<mat-menu #menu="matMenu" class="at-menu-container">
+    <ng-container  *ngIf="menuItems.length > 0">
+        <ng-container *ngFor="let item of menuItems">
+            <button mat-menu-item [disabled]="item.isDisabled" (click)="item.onClick()">
+                <at-assets-icon-mat *ngIf="item.icon" [icon]="item.icon" [fontSize]="20"></at-assets-icon-mat>
+                <span>{{ item.displayName }}</span>
+            </button>
+        </ng-container>
+    </ng-container>
+</mat-menu>

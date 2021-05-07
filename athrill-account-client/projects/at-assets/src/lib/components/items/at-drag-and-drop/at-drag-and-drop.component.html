@@ -1,0 +1,24 @@
+<mat-card class="drag-and-drop-wrapper">
+    <div cdkDropList (cdkDropListDropped)="drop($event)" class="drag-and-drop-item-list"   *ngIf="itemsToProcess.length > 0">
+        <div 
+            *ngFor="let item of itemsToProcess" 
+            class="drag-and-drop-item" 
+            cdkDrag  
+        >
+            <div class="custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="dragger" cdkDragHandle>
+                <at-assets-button-icon
+                    class="drag-and-drop-button"
+                    [icon] = "'drag_indicator'"
+                    [title] = "'Drag and Drop'"
+                    [cursor] = "'move'"
+                    cdkDragHandle
+                >
+                </at-assets-button-icon>
+            </div>
+            <div class="drag-and-drop-item-content">
+                <ng-container *ngTemplateOutlet="dragAndDropItem; context: { item: item }" ></ng-container>
+            </div>
+        </div>
+    </div>
+</mat-card>

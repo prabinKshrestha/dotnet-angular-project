@@ -1,0 +1,52 @@
+<at-assets-detail-dialog
+    [title]="'Email Setting Detail'"
+>
+    <div class="detail-group">
+        <h5 class="label">Name</h5>
+        <div class="value">{{ data.Name }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Email</h5>
+        <div class="value">{{ data.Email }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Send From Name</h5>
+        <div class="value">{{ data.SendFromName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Reply To Name</h5>
+        <div class="value">{{ data.ReplyToName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Reply To Email</h5>
+        <div class="value">{{ data.ReplyToEmail }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Host</h5>
+        <div class="value">{{ data.Host }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Port</h5>
+        <div class="value">{{ data.Port }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">SSL Status</h5>
+        <div class="value">{{ data.IsSSL ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Default Status</h5>
+        <div class="value">{{ data.IsDefault ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Publish Status</h5>
+        <div class="value">{{ data.IsPublished ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Description</h5>
+        <div class="value">{{ data.Description }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Addded Date</h5>
+        <div class="value">{{ data.CreatedOn | atLocalTime : 'detail' }}</div>
+    </div>
+</at-assets-detail-dialog>

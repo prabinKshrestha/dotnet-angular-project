@@ -1,0 +1,50 @@
+<at-assets-detail-dialog
+    [title]="'User Detail'"
+>
+    <div class="detail-group">
+        <h5 class="label">Image</h5>
+        <p class="value">
+            <img class="detail-image" [src]="data.Image | atNetworkImage " />
+        </p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Name</h5>
+        <p class="value">{{ data.FullName }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Email</h5>
+        <p class="value">{{ data.Email }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Gender</h5>
+        <p class="value">{{ data.Gender?.DisplayName }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">DOB</h5>
+        <p class="value">{{ data.DOB | atLocalTime : 'basic' }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Phone Number</h5>
+        <p class="value">{{ data.PhoneNumber }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Address</h5>
+        <p class="value">{{ data.Address }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Role</h5>
+        <p class="value">{{ data.UserRoleLink?.UserRole?.DisplayName }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Username</h5>
+        <p class="value">{{ data.UserLogin?.Username }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Active Status</h5>
+        <p class="value">{{ data.IsActive ? "Yes" : "No" }}</p>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Addded Date</h5>
+        <p class="value">{{ data.CreatedOn | atLocalTime : 'detail' }}</p>
+    </div>
+</at-assets-detail-dialog>

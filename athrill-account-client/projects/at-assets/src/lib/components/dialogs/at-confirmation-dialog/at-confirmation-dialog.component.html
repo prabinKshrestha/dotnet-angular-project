@@ -1,0 +1,18 @@
+<div mat-dialog-title>
+    <mat-toolbar class="bg-accent-dark" >
+        {{ data.title }}
+        <span class="spacer"></span>
+        <at-assets-button-icon
+            [icon]="'close'" 
+            (onClick)="onDeclineButtonClick()">
+        >
+        </at-assets-button-icon>
+    </mat-toolbar>
+</div>
+<mat-dialog-content class="mat-typography">
+    {{  data.body }}
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <at-assets-button-text [classes]="'bg-accent-dark bg-primary-dark-hover'" [type]="'flat'" [text]="data.acceptButtonText" (onClick)="onAcceptButtonClick()"></at-assets-button-text>
+    <at-assets-button-text [text]="data.declineButtonText" (onClick)="onDeclineButtonClick()"> </at-assets-button-text>
+</mat-dialog-actions>

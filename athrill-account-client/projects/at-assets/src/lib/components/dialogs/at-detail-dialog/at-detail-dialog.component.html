@@ -1,0 +1,14 @@
+<div mat-dialog-title>
+    <mat-toolbar  class="bg-accent-dark" >
+        {{ title }}
+    </mat-toolbar>
+</div>
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+    <div class="detail-content">
+        <ng-content></ng-content>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <at-assets-button-text [text]="'Close'" (onClick)="onDeclineButtonClick()"> </at-assets-button-text>
+</mat-dialog-actions>

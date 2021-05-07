@@ -1,0 +1,64 @@
+<at-assets-detail-dialog
+    [title]="'Content Detail'"
+>
+    <div class="detail-group">
+        <h5 class="label">Image</h5>
+        <div class="value">
+            <img *ngIf="data.ImageName" class="detail-image" [src]="data.Image | atNetworkImage " />
+        </div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Name</h5>
+        <div class="value">{{ data.Name }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Sub Name</h5>
+        <div class="value">{{ data.SubName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Slug</h5>
+        <div class="value">{{ data.Slug }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Content Type</h5>
+        <div class="value">{{ data.ContentType?.DisplayName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Placement</h5>
+        <div class="value">{{ data.Placement?.DisplayName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Parent</h5>
+        <div class="value">{{ data.Parent?.Name }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">External Url</h5>
+        <div class="value">{{ data.ExternalUrl }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Icon</h5>
+        <div class="value">{{ data.FontAwesomeIcon }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Image Alternative Name</h5>
+        <div class="value">{{ data.ImageAltName }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Short Description</h5>
+        <div class="value">{{ data.ShortDescription }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Description</h5>
+        <div class="value">
+            <at-assets-html-content [content]="data.Description"></at-assets-html-content>
+        </div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Publish Status</h5>
+        <div class="value">{{ data.IsPublished ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Addded Date</h5>
+        <div class="value">{{ data.CreatedOn | atLocalTime : 'detail' }}</div>
+    </div>
+</at-assets-detail-dialog>

@@ -1,0 +1,65 @@
+<at-assets-content-layout [title]="'Detail'">
+
+	<ng-template #headerRightContents>
+		<at-assets-button-icon 
+			[title]="'Change Passsword'" 
+			[icon]="'lock'" 
+			[color]="'accent'"
+			(onClick)="onChangePassword()">
+		</at-assets-button-icon>
+		<at-assets-button-icon 
+			[title]="'Edit User'" 
+			[icon]="'edit'" 
+			[color]="'accent'"
+			(onClick)="onEdit()">
+		</at-assets-button-icon>
+		<at-assets-menus [menuItems]="moreActions"></at-assets-menus>
+	</ng-template>
+	
+	<at-assets-table>
+		
+		<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+
+		<at-assets-table-header label="Label" width="250"></at-assets-table-header>
+		<at-assets-table-header label="Value"></at-assets-table-header>
+		
+		<tr class="table-row">
+			<td class="label">Name</td>
+			<td class="value">{{ user?.FullName }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Email</td>
+			<td class="value">{{ user?.Email }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Date of Birth</td>
+			<td class="value">{{ user?.DOB | atLocalTime : 'basic'  }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Gender</td>
+			<td class="value">{{ user?.Gender?.DisplayName }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Phone Number</td>
+			<td class="value">{{ user?.PhoneNumber }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Address</td>
+			<td class="value">{{ user?.Address }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">User Name </td>
+			<td class="value">{{ user?.UserLogin?.Username }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Role</td>
+			<td class="value">{{ user?.UserRoleLink?.UserRole?.DisplayName }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Image</td>
+			<td class="value">
+				<img class="image" [src]=" user?.Image | atNetworkImage " />
+			</td>
+		</tr>
+	</at-assets-table>
+</at-assets-content-layout>

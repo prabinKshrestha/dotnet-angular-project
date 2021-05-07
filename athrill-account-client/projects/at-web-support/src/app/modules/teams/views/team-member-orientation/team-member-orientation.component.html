@@ -1,0 +1,38 @@
+<at-assets-content-layout [title]="'Team Category Orientation'">
+	<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+	<ng-template #headerRightContents>
+		<at-assets-button-icon 
+			[title]="'Save'" 
+			[icon]="'save'" 
+			[color]="'accent'"
+			[disabled]="disableSaveAndClear"
+			(onClick)="onSave()"
+		>
+		</at-assets-button-icon>
+		<at-assets-button-icon 
+			[title]="'Clear'" 
+			[icon]="'settings_backup_restore'" 
+			[disabled]="disableSaveAndClear"
+			(onClick)="onClear()"
+		>
+		</at-assets-button-icon>
+	</ng-template>
+
+	<div class="team-member-orientation-wrapper">
+
+		<div class="drag-and-drop-holder" *ngFor="let teamCategory of teamCategories">
+			<h3>{{ teamCategory.Name }}</h3>
+			<at-assets-drag-and-drop
+				#atDragAndDrop
+				[items]="teamCategory.TeamCategoryMemberLinks"
+				(onMove)="onMove(teamCategory.TeamCategoryId, $event)"
+			>
+				<ng-template #dragAndDropItem let-item="item">
+					{{ item.TeamMember.Name }}
+				</ng-template>
+			</at-assets-drag-and-drop>
+		</div>
+
+	</div>
+
+</at-assets-content-layout>

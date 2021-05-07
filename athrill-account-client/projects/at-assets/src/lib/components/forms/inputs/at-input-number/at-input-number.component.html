@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill" class="at-input-number">
+    <mat-label>{{ label }}</mat-label>
+    <input 
+        #input="ngModel"
+        matInput 
+        [name]="name"
+        [(ngModel)]="value" 
+        [required]="required" 
+        [disabled]="disabled"
+        [min]="min"
+        [max]="max"
+        [type]="'number'"
+        [placeholder]="placeholder ? placeholder : label">
+    <mat-hint *ngIf="hint" align="start">{{ hint }}</mat-hint>
+</mat-form-field>

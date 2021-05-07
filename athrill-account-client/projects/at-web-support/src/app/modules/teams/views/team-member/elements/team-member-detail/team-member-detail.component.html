@@ -1,0 +1,84 @@
+<at-assets-detail-dialog
+    [title]="'Team Member Detail'"
+>
+    <div class="detail-group">
+        <h5 class="label">Image</h5>
+        <div class="value">
+            <img *ngIf="data.ImageName" class="detail-image" [src]="data.Image | atNetworkImage " />
+        </div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Name</h5>
+        <div class="value">{{ data.Name }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Email</h5>
+        <div class="value">{{ data.Email }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Role</h5>
+        <div class="value">{{ data.Role }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Position</h5>
+        <div class="value">{{ data.Position }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Quotation</h5>
+        <div class="value">{{ data.Quotation }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Phone Number</h5>
+        <div class="value">{{ data.PhoneNumber }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Team Categories</h5>
+        <div class="value">
+            <ul class="team-categories">
+                <li *ngFor="let link of data.TeamCategoryMemberLinks">
+                    {{ link.TeamCategory?.Name }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Facebook Link</h5>
+        <div class="value">{{ data.FacebookLink }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Instagram Link</h5>
+        <div class="value">{{ data.InstagramLink }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Skype Link</h5>
+        <div class="value">{{ data.SkypeLink }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">LinkedIn Link</h5>
+        <div class="value">{{ data.LinkedInLink }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Twiter Link</h5>
+        <div class="value">{{ data.Twiterlink }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Viber</h5>
+        <div class="value">{{ data.Viber }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Short Description</h5>
+        <div class="value">{{ data.ShortDescription }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Description</h5>
+        <div class="value">{{ data.Description }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Publish Status</h5>
+        <div class="value">{{ data.IsPublished ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Addded Date</h5>
+        <div class="value">{{ data.CreatedOn | atLocalTime : 'detail' }}</div>
+    </div>
+</at-assets-detail-dialog>

@@ -1,0 +1,12 @@
+::ng-deep{
+    .at-menu-container{
+        .mat-menu-content{
+            padding: 0 !important;
+            .mat-menu-item{
+                height: 35px;
+                line-height: 35px;
+                padding: 0 30px 0 15px;
+            }
+        }
+    }
+}

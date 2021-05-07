@@ -1,0 +1,137 @@
+<at-assets-button-icon
+    *ngIf="filterItems.length > 0"
+    [icon] = "'filter_none'"
+    [title] = "'Filters'"
+    [matMenuTriggerFor]="menu" 
+    #matMenuTrigger="matMenuTrigger"
+>
+</at-assets-button-icon>
+<mat-menu #menu="matMenu" class="filter-mat-menu" (closed)="onCloseMatMenu($event)">
+    <at-assets-loader *ngIf="showFilterLoading"></at-assets-loader>
+    <ng-container  *ngIf="filterItems.length > 0" >
+        <div class="body" (click)="$event.stopPropagation();">
+            <div class="user-filter-item" *ngFor="let userFilterItem of currentUserFilterItems; let i = index ">
+                <div class="user-field user-filter-item-remove">
+                    <at-assets-button-icon
+                        class="remove-button"
+                        [icon] = "'remove_circle'"
+                        [title] = "'Remove'"
+                        (onClick)="onRemoveClick(i)"
+                    >
+                    </at-assets-button-icon>
+                </div>
+                <div class="user-field user-filter-item-item">
+                    <at-assets-input-select
+                        #Field
+                        label="Field"
+                        name="FieldId"
+                        [(ngModel)]="userFilterItem.field"
+                        [data]="filterItems"
+                        [textField]="'displayName'"
+                        [valueField]="'field'"
+                    >
+                    </at-assets-input-select>
+                </div>
+                <div class="user-comparision user-filter-item-item">
+                    <at-assets-input-select
+                        #ComparisionType
+                        label="Comparision"
+                        name="ComparisionTypeId"
+                        [(ngModel)]="userFilterItem.comparisionType"
+                        [data]="getComparisionTypes(userFilterItem)"
+                        [textField]="'DisplayName'"
+                        [valueField]="'ComparisionTypeId'"
+                        [disabled]="!userFilterItem.field"
+                    >
+                    </at-assets-input-select>
+                </div>
+                <div class="user-value user-filter-item-item">
+                    <ng-container [ngSwitch]="getDataType(userFilterItem)">
+                        <at-assets-input-text
+                            *ngSwitchCase="ATCustomDataTypeEnum.String"
+                            #Value
+                            label="Value"
+                            name="Value"
+                            [(ngModel)]="userFilterItem.value"
+                            [disabled]="isValueDisabled(userFilterItem)"
+                        >
+                        </at-assets-input-text>
+                        <at-assets-input-number
+                            *ngSwitchCase="ATCustomDataTypeEnum.Integer"
+                            #Value
+                            label="Value"
+                            name="Value"
+                            [(ngModel)]="userFilterItem.value"
+                            [disabled]="isValueDisabled(userFilterItem)"
+                        >
+                        </at-assets-input-number>
+                        <at-assets-input-checkbox
+                            *ngSwitchCase="ATCustomDataTypeEnum.Boolean"
+                            #Value
+                            name="Value"
+                            [(ngModel)]="userFilterItem.value"
+                            [disabled]="isValueDisabled(userFilterItem)"
+                        >
+                        </at-assets-input-checkbox>
+                        <at-assets-input-select
+                            *ngSwitchCase="ATCustomDataTypeEnum.Dropdown"
+                            #Value
+                            label="Value"
+                            name="Value"
+                            [(ngModel)]="userFilterItem.value"
+                            [data]="getDataForDropDown(userFilterItem)"
+                            [displayWithFn]="getDropDownOption(userFilterItem).displayFn"
+                            [valueFn]="getDropDownOption(userFilterItem).dataValueFn"
+                            [disabled]="isValueDisabled(userFilterItem)"
+                        >
+                        </at-assets-input-select>
+                        <at-assets-input-datepicker
+                            *ngSwitchCase="ATCustomDataTypeEnum.Date"
+                            #Value
+                            label="Value"
+                            name="Value"
+                            [(atDateModel)]="userFilterItem.value"
+                            [disabled]="isValueDisabled(userFilterItem)"
+                        >
+                        </at-assets-input-datepicker>
+                        <at-assets-input-text
+                            *ngSwitchDefault
+                            #Value
+                            label="Value"
+                            name="Value"
+                            [(ngModel)]="userFilterItem.value"
+                            [disabled]="true"
+                        >
+                        </at-assets-input-text>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="footer"  (click)="$event.stopPropagation();">
+            <div>
+                <at-assets-button-text 
+                    [classes]="'bg-primary'"
+                    [type]="'flat'" 
+                    [text]="'Add Filter'"
+                    (onClick)="onAddClick()"
+                >
+                </at-assets-button-text>
+            </div>
+            <div>
+                <at-assets-button-text 
+                    [classes]="'bg-accent bg-primary-hover'"
+                    [type]="'flat'" 
+                    [text]="'Apply'"
+                    (onClick)="onSaveClick()"
+                    style="margin-right: 10px;"
+                >
+                </at-assets-button-text>
+                <at-assets-button-text
+                    [text] = "'Default'"
+                    (onClick)="onClearClick()"
+                >
+                </at-assets-button-text>
+            </div>
+        </div>
+    </ng-container>
+</mat-menu>

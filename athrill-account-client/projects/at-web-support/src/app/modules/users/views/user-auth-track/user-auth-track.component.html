@@ -1,0 +1,50 @@
+<at-assets-content-layout [title]="'User Tracks'">
+
+	<at-assets-grid
+		[hasPagination]="true"
+		[displayedColumns]="displayedColumns"
+		[gridDataSource]="gridDataSource"
+		[gridState]="gridState"
+		[defaultGridState]="defaultGridState"
+		[sortItems]="sortItems"
+		[filterItems]="filterItems"
+		[userFilterItems]="userFilterItems"
+		(onSelection)="onSelection($event)" 
+		(onGridStateChange)="onGridStateChange($event)"
+	>
+
+		<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+
+		<ng-container matColumnDef="UserTrackTypeDisplayName">
+			<th mat-header-cell *matHeaderCellDef> Action </th>
+			<td mat-cell *matCellDef="let row"> {{row.UserTrackTypeDisplayName}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="UserFullName">
+			<th mat-header-cell *matHeaderCellDef> Name </th>
+			<td mat-cell *matCellDef="let row"> {{row.User?.FullName}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="IpAddress">
+			<th mat-header-cell *matHeaderCellDef> Ip Address </th>
+			<td mat-cell *matCellDef="let row"> {{row.IpAddress}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="ClientName">
+			<th mat-header-cell *matHeaderCellDef> Client Info </th>
+			<td mat-cell *matCellDef="let row"> {{row.ClientName}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="PerformedBy">
+			<th mat-header-cell *matHeaderCellDef> Performed By </th>
+			<td mat-cell *matCellDef="let row"> {{ getCreatedByFullName(row.CreatedById) }} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="CreatedOn">
+			<th mat-header-cell *matHeaderCellDef> Action Date </th>
+			<td mat-cell *matCellDef="let row"> {{row.CreatedOn | atLocalTime : 'detail' }} </td>
+		</ng-container>
+
+	</at-assets-grid>
+
+</at-assets-content-layout>

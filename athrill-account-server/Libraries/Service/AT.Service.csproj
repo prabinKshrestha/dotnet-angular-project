@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.6.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common.Api\AT.Common.Api.csproj" />
+    <ProjectReference Include="..\Common\AT.Common.csproj" />
+    <ProjectReference Include="..\Data\AT.Data.csproj" />
+    <ProjectReference Include="..\Entity\AT.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

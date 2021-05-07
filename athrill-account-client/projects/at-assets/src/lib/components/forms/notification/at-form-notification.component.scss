@@ -1,0 +1,24 @@
+.notifications{    
+    margin: 10px 15px;
+    font-size: 1em;
+    &.warning{
+        //TODO: fetch this color from theme variable
+        background: #FFC107;
+        //TODO: fetch this color from theme variable
+        color: #000;
+    }
+    &.error{
+        //TODO: fetch this color from theme variable
+        background: #f44336;
+        //TODO: fetch this color from theme variable
+        color: #fff;
+    }
+    .title{
+        margin: 0;
+    }
+    ul{
+        margin: 0;
+        padding-left: 20px;
+        font-size: 90%;
+    }
+}

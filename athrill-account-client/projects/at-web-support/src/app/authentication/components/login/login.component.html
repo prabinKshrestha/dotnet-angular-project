@@ -1,0 +1,35 @@
+<form autocomplete="off" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && signIn()">
+    <div class="login-form-container">
+        <div class="image-avatar">
+            <img src="./../../../../assets/images/login_avatar.svg">
+        </div>
+        <span class="welcome">WELCOME</span>
+        <div class="input-field">
+            <at-assets-icon-mat icon='person'></at-assets-icon-mat>
+            <input id="username" #username="ngModel" name="username" [(ngModel)]="loginModel.Username" type="text"
+                required="required" minlength="6" maxlength="50" autocomplete="off" autofocus="off"
+                placeholder="Username" />
+        </div>
+        <div class="input-field">
+            <at-assets-icon-mat icon='lock'></at-assets-icon-mat>
+            <input id="password" #password="ngModel" name="password" [(ngModel)]="loginModel.Password"
+                required="required" type="password" autocomplete="off" autofocus="off" placeholder="Password" />
+        </div>
+        <span class="forgot-password">
+            <a [routerLink]="['/auth/reset-password']">Forgot Password ?</a>
+        </span>
+        <div class="error">
+            <ng-container *ngIf="loginForm.submitted || (username.touched && username.invalid)">
+                <p class="error-item" *ngIf="username.errors?.required">Username is Required.</p>
+                <p class="error-item" *ngIf="username.errors?.minlength">Username must be at least 6 characters long.
+                </p>
+            </ng-container>
+            <ng-container *ngIf="loginForm.submitted || (password.touched && password.invalid)">
+                <p class="val-error-list" *ngIf="password.errors?.required">Password is Required.</p>
+            </ng-container>
+            <ng-container *ngIf="hasError">
+                <p class="error-item" *ngFor="let item of validationMessages">{{item}}</p>
+            </ng-container>
+        </div>
+        <button class="login-button" [disabled]="isSigningIn"> {{ isSigningIn ? "LOGIN Processing" :"LOGIN" }}</button>
+    </div>

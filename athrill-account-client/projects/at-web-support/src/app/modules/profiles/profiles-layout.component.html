@@ -1,0 +1,5 @@
+<at-assets-main-layout [title]="'Profile'">
+    <at-assets-view-list-item [name]="'General'" [route]="'/profile/general'"></at-assets-view-list-item>
+    <at-assets-view-list-item [name]="'Profile Tracks'" [route]="'/profile/track'" *ngIf="showUserTrackRecord()"></at-assets-view-list-item>
+    <router-outlet></router-outlet>
+</at-assets-main-layout>

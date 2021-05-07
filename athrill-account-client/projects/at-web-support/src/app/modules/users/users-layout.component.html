@@ -1,0 +1,5 @@
+<at-assets-main-layout [title]="'Support Site Users'">
+    <at-assets-view-list-item [name]="'General'" [route]="'/users/general'"></at-assets-view-list-item>
+    <at-assets-view-list-item [name]="'User Tracks'" [route]="'/users/track'" *ngIf="showUserTrackRecord()"></at-assets-view-list-item>
+    <router-outlet></router-outlet>
+</at-assets-main-layout>

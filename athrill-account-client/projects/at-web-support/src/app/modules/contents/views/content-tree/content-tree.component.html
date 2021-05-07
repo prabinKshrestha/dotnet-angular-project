@@ -1,0 +1,35 @@
+<at-assets-content-layout [title]="'Content Tree'">
+	<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+	<ng-template #headerRightContents>
+		<at-assets-button-icon 
+			[title]="'Save'" 
+			[icon]="'save'" 
+			[color]="'accent'"
+			[disabled]="changedItems.length < 1"
+			(onClick)="onSave()"
+		>
+		</at-assets-button-icon>
+		<at-assets-button-icon 
+			[title]="'Clear'" 
+			[icon]="'settings_backup_restore'" 
+			[disabled]="changedItems.length < 1"
+			(onClick)="onClear()"
+		>
+		</at-assets-button-icon>
+	</ng-template>
+
+	<div class="tree-dnd-holder">
+		<at-assets-tree-dnd
+			#atTreeDND
+			[nodes]="items"
+			[displayField]="'Title'"
+			[childrenField]="'Children'"
+			(onMove)="onMove($event)"
+		>
+			<ng-template #treeDNDItem let-node="node">
+				{{ node.data.Title }}
+			</ng-template>
+		</at-assets-tree-dnd>
+	</div>
+
+</at-assets-content-layout>

@@ -1,0 +1,134 @@
+<at-assets-content-layout [title]="'Detail'">
+
+	<ng-template #headerRightContents>
+		<at-assets-button-icon 
+			[title]="'Edit User'" 
+			[icon]="'edit'" 
+			[color]="'accent'"
+			[disabled]="!canEdit()"
+			(onClick)="onEdit()"
+		></at-assets-button-icon>
+		<at-assets-menus [menuItems]="moreActions"></at-assets-menus>
+	</ng-template>
+
+	<at-assets-table>
+		
+		<at-assets-loader *ngIf="isContentLoading"></at-assets-loader>
+
+		<at-assets-table-header label="Label" width="250"></at-assets-table-header>
+		<at-assets-table-header label="Value"></at-assets-table-header>
+
+		<tr class="table-row">
+			<td class="label">Name</td>
+			<td class="value">{{ siteSetting?.Name }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Name1</td>
+			<td class="value">{{ siteSetting?.Name1 }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Name2</td>
+			<td class="value">{{ siteSetting?.Name2 }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Name3</td>
+			<td class="value">{{ siteSetting?.Name3 }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Name4</td>
+			<td class="value">{{ siteSetting?.Name4 }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Site Slogan</td>
+			<td class="value">{{ siteSetting?.SiteSlogan }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Site Url</td>
+			<td class="value">{{ siteSetting?.SiteUrl }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Feedback Email</td>
+			<td class="value">{{ siteSetting?.FeedbackEmail }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Copyright Name</td>
+			<td class="value">{{ siteSetting?.CopyrightName }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Work Hours</td>
+			<td class="value">{{ siteSetting?.WorkHours }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Address Short Detail</td>
+			<td class="value">{{ siteSetting?.AddressShortDetail }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Address Detail</td>
+			<td class="value">{{ siteSetting?.AddressDetail }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Location Iframe</td>
+			<td class="value">{{ siteSetting?.LocationIframe }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">PhoneNumber</td>
+			<td class="value">{{ siteSetting?.PhoneNumber }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Facebook Link</td>
+			<td class="value">{{ siteSetting?.FacebookLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Youtube Link</td>
+			<td class="value">{{ siteSetting?.YoutubeLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Twiter Link</td>
+			<td class="value">{{ siteSetting?.TwiterLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Skype Link</td>
+			<td class="value">{{ siteSetting?.SkypeLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">LinkedIn Link</td>
+			<td class="value">{{ siteSetting?.LinkedInLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Instagram Link</td>
+			<td class="value">{{ siteSetting?.InstagramLink }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Viber</td>
+			<td class="value">{{ siteSetting?.Viber }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Whatsapp</td>
+			<td class="value">{{ siteSetting?.Whatsapp }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Meta Title</td>
+			<td class="value">{{ siteSetting?.MetaTitle }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Meta Keywords</td>
+			<td class="value">{{ siteSetting?.MetaKeywords }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Meta Description</td>
+			<td class="value">{{ siteSetting?.MetaDescription }}</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Image</td>
+			<td class="value">
+				<img class="image" [src]=" siteSetting?.Image | atNetworkImage " />
+			</td>
+		</tr>
+		<tr class="table-row">
+			<td class="label">Meta Image</td>
+			<td class="value">
+				<img class="image" [src]=" siteSetting?.MetaImage | atNetworkImage " />
+			</td>
+		</tr>
+	</at-assets-table>
+</at-assets-content-layout>

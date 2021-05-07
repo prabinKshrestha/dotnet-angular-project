@@ -1,0 +1,24 @@
+<div class="main-layout-container">
+    <div class="main-layout-container-header">
+        <h2 class="module-name">{{ title }}</h2>
+    </div>
+    <div class="main-layout-container-body">
+        <div class="view-container">
+            <div class="view-list-container" *ngIf="viewItems?.length > 0">
+                <div class="view-list-container-title">
+                    <h2>Views</h2>
+                </div>
+                <div class="view-list-container-items">
+                    <mat-nav-list>
+                        <ng-container *ngFor="let item of viewItems">
+                            <a mat-list-item [routerLink]="[item.route]"  routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">{{item.name}}</a>
+                        </ng-container>
+                    </mat-nav-list>
+                </div>
+            </div>
+            <div class="view-content-container">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

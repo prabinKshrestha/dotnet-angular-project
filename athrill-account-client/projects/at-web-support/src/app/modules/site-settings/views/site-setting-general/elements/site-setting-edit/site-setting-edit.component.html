@@ -1,0 +1,339 @@
+<at-assets-add-edit-dialog
+    [title]="'Edit Profile'"
+>
+    <at-assets-loader *ngIf="showLoader"></at-assets-loader>
+    <at-assets-form
+        #atForm
+        [isValid]="isValid()"
+        [subscription]="processForm()"
+        (onProcess)="processProcessing($event)"
+        (onSubmission)="processSubmission($event)"
+        (onSuccess)="processSuccess($event)"
+        (onFailure)="processFailure($event)"
+        (onCancel)="processCancel($event)"
+    >
+        <div class="form-group">
+            <at-assets-input-text
+                #Name
+                label="Name"
+                name="Name"
+                [(ngModel)]="activeModel.Name"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Name.model.invalid &&  Name.model.errors.required">
+                Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Name1
+                label="Name1"
+                name="Name1"
+                [(ngModel)]="activeModel.Name1"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Name2
+                label="Name2"
+                name="Name2"
+                [(ngModel)]="activeModel.Name2"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Name3
+                label="Name3"
+                name="Name3"
+                [(ngModel)]="activeModel.Name3"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Name4
+                label="Name4"
+                name="Name4"
+                [(ngModel)]="activeModel.Name4"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SiteSlogan
+                label="Site Slogan"
+                name="SiteSlogan"
+                [(ngModel)]="activeModel.SiteSlogan"
+                [required]="true"
+                [maxLength]="400"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && SiteSlogan.model.invalid &&  SiteSlogan.model.errors.required">
+                Site Slogan is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SiteUrl
+                label="Site Url"
+                name="SiteUrl"
+                [(ngModel)]="activeModel.SiteUrl"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && SiteUrl.model.invalid &&  SiteUrl.model.errors.required">
+                Site Url is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #FeedbackEmail
+                label="Feedback Email"
+                name="FeedbackEmail"
+                [email]="true"
+                [(ngModel)]="activeModel.FeedbackEmail"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && FeedbackEmail.model.invalid &&  FeedbackEmail.model.errors?.required">
+                Feedback Email is required.
+            </at-assets-input-error>
+            <at-assets-input-error *ngIf="atForm.form.submitted && FeedbackEmail.model.invalid &&  FeedbackEmail.model.errors?.email">
+                Feedback Email is not valid.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #CopyrightName
+                label="Copyright Name"
+                name="CopyrightName"
+                [(ngModel)]="activeModel.CopyrightName"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && CopyrightName.model.invalid &&  CopyrightName.model.errors.required">
+                Copyright Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #WorkHours
+                label="Work Hours"
+                name="WorkHours"
+                [(ngModel)]="activeModel.WorkHours"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-file
+                #file
+                label="Image"
+                name="Image"
+                [existingFile]="data.ImageName"
+                [(atFileModel)]="activeModel.ImageFile"
+                [(isFileChanged)]="activeModel.IsImageChanged"
+                [accept]="'image/*'"
+                [required]="true"
+            >
+            </at-assets-input-file>
+            <at-assets-input-error *ngIf="atForm.form.submitted && !file.hasFile">
+                Image is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #AddressShortDetail
+                label="Address Short Detail"
+                name="AddressShortDetail"
+                [(ngModel)]="activeModel.AddressShortDetail"
+                [required]="true"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+            <at-assets-input-error *ngIf="atForm.form.submitted && AddressShortDetail.model.invalid && AddressShortDetail.model.errors.required">
+                Address Short Detail is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #AddressDetail
+                label="Address Detail"
+                name="AddressDetail"
+                [(ngModel)]="activeModel.AddressDetail"
+                [required]="true"
+                [showLengthCountHint]="false"
+            >
+            </at-assets-input-textarea>
+            <at-assets-input-error *ngIf="atForm.form.submitted && AddressDetail.model.invalid && AddressDetail.model.errors.required">
+                Address Detail is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #LocationIframe
+                label="Location Iframe"
+                name="LocationIframe"
+                [(ngModel)]="activeModel.LocationIframe"
+                [showLengthCountHint]="false"
+            >
+            </at-assets-input-textarea>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #PhoneNumber
+                label="Phone Number"
+                name="PhoneNumber"
+                [(ngModel)]="activeModel.PhoneNumber"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && PhoneNumber.model.invalid &&  PhoneNumber.model.errors.required">
+                Phone Number is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #FacebookLink
+                label="Facebook Link"
+                name="FacebookLink"
+                [(ngModel)]="activeModel.FacebookLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #YoutubeLink
+                label="Youtube Link"
+                name="YoutubeLink"
+                [(ngModel)]="activeModel.YoutubeLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #TwiterLink
+                label="Twiter Link"
+                name="TwiterLink"
+                [(ngModel)]="activeModel.TwiterLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SkypeLink
+                label="Skype Link"
+                name="SkypeLink"
+                [(ngModel)]="activeModel.SkypeLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #LinkedInLink
+                label="LinkedIn Link"
+                name="LinkedInLink"
+                [(ngModel)]="activeModel.LinkedInLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #InstagramLink
+                label="Instagram Link"
+                name="InstagramLink"
+                [(ngModel)]="activeModel.InstagramLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Viber
+                label="Viber"
+                name="Viber"
+                [(ngModel)]="activeModel.Viber"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Whatsapp
+                label="Whatsapp"
+                name="Whatsapp"
+                [(ngModel)]="activeModel.Whatsapp"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #MetaTitle
+                label="Meta Title"
+                name="MetaTitle"
+                [(ngModel)]="activeModel.MetaTitle"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && MetaTitle.model.invalid &&  MetaTitle.model.errors.required">
+                Meta Title is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #MetaKeywords
+                label="Meta Keywords"
+                name="MetaKeywords"
+                [(ngModel)]="activeModel.MetaKeywords"
+                [required]="true"
+                [maxLength]="400"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && MetaKeywords.model.invalid &&  MetaKeywords.model.errors.required">
+                Meta Keywords is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #MetaDescription
+                label="Meta Description"
+                name="MetaDescription"
+                [(ngModel)]="activeModel.MetaDescription"
+                [required]="true"
+            >
+            </at-assets-input-textarea>
+            <at-assets-input-error *ngIf="atForm.form.submitted && MetaDescription.model.invalid && MetaDescription.model.errors.required">
+                Meta Description is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-file
+                #MetaImageFile
+                label="Meta Image"
+                name="MetaImageFile"
+                [existingFile]="data.MetaImageName"
+                [(atFileModel)]="activeModel.MetaImageFile"
+                [(isFileChanged)]="activeModel.IsMetaImageChanged"
+                [accept]="'image/*'"
+                [required]="true"
+            >
+            </at-assets-input-file>
+            <at-assets-input-error *ngIf="atForm.form.submitted && !MetaImageFile.hasFile">
+                Meta Image is required.
+            </at-assets-input-error>
+        </div>
+    </at-assets-form>
+</at-assets-add-edit-dialog>

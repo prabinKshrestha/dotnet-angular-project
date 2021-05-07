@@ -1,0 +1,62 @@
+.main-layout-container {
+    .main-layout-container-header {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+        padding: 0 25px;
+        .module-name {
+            margin: unset;
+        }
+    }
+    .main-layout-container-body {
+        overflow-y: auto;
+        height: calc(100vh - 100px);
+        position: relative;
+        .view-container {
+            display: flex;
+            width: 100%;
+            .view-list-container {
+                width: 300px;
+                border-right: 1px solid #ccc;
+                .view-list-container-title {
+                    padding: 0px 25px;
+                    border-bottom: 1px solid #ccc;
+                    height: 55px;
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+                    h2 {
+                        margin: 0;
+                    }
+                }
+                .view-list-container-items{
+                    height: calc(100% - 52px);
+                    background-color: hsla(0,0%,93%,1);
+                    .mat-nav-list{
+                        padding: 0;
+                        .mat-list-item{
+                            &.active{
+                                ::ng-deep{
+                                    .mat-list-item-content{
+                                        border-right: 3px solid var(--color-accent);
+                                        font-weight: 500;
+                                    }
+                                }
+                                background-color:  hsla(0,0%,85%,1);
+                            }
+                            ::ng-deep{
+                                .mat-list-item-content{
+                                    padding: 0px 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .view-content-container {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+.grid-wrapper {
+    .grid-header{
+        min-height: 40px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0 20px;
+        margin-top: 8px;
+        background-color: hsla(0, 0%, 85%, 1); //TODO: fetch this color from theme variable
+        ::ng-deep{
+            .at-assets-icon{
+                height: 20px !important;
+                width: 20px !important;
+                line-height: 20px !important;
+                font-size: 20px !important;
+            }
+        }
+    }
+    .mat-card {
+        margin: 15px 20px;
+        margin-top: 0px;
+        padding: 0;
+        .mat-card-content {
+            height: calc(100vh - 280px);
+            overflow-y: auto;
+            margin: unset;
+            .mat-table {
+                width: 100%;
+                .mat-header-row {
+                    height: 40px;
+                    ::ng-deep {
+                        .mat-header-cell {
+                            background-color: hsla(0, 0%, 70%, 1); //TODO: fetch this color from theme variable
+                            color: black; //TODO: fetch this color from theme variable
+                            letter-spacing: 0.4px;
+                            font-weight: 550;
+                            font-size: 14px;
+                            &:not(:first-of-type) {
+                                border-left: 1px solid #fff;
+                                padding: 10px 10px;
+                            }
+                            &:not(:last-of-type) {
+                                border-right: 1px solid #fff;
+                            }
+                        }
+                    }
+                }
+                .grid-row {
+                    &:hover {
+                        background-color: hsla(0, 0%, 96%, 1); //TODO: fetch this color from theme variable
+                    }
+                    &.selected {
+                        background-color: hsla(0, 0%, 91%, 1); //TODO: fetch this color from theme variable
+                    }
+                    ::ng-deep {
+                        .mat-cell {
+                            &:not(:first-of-type) {
+                                padding: 10px 10px;
+                            }
+                        }
+                    }
+                }
+                .mat-column-select {
+                    overflow: initial;
+                }
+            }
+            .no-record-message {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .mat-card-footer {
+            margin: unset;
+        }
+    }
+}

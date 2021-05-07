@@ -1,0 +1,43 @@
+::ng-deep {
+    .filter-mat-menu {
+        overflow: hidden;
+        max-width: 90vw;
+        border-radius: 0px;
+
+        .mat-menu-content {
+            padding: 0 !important;
+            position: relative;
+            .body {
+                padding: 10px;
+                overflow: auto;
+                max-height: calc(100vh - 320px);
+                .user-filter-item {
+                    font-size: 12px;
+                    display: flex;
+                    position: relative;
+                    .user-filter-item-item {
+                        margin: 0px 5px;
+                    }
+                    .remove-button {
+                        display: block;
+                        margin-top: 5px;
+                    }
+                }
+            }
+            .footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 13px 15px;
+                ::ng-deep{
+                    button{
+                        font-size: 13px;
+                        line-height: 32px;
+                        padding: 0 15px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+}

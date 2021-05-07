@@ -1,0 +1,29 @@
+<mat-form-field appearance="fill" class="at-input-select">
+    <mat-label>{{ label }}</mat-label>
+    <mat-select
+        #input="ngModel" 
+        [name]="name"
+        [(ngModel)]="value"
+        (selectionChange)="onSelectionChange($event)"
+        [required]="required"
+        [placeholder]="placeholder ? placeholder : label"
+        [disabled]="disabled"
+    >
+        <ng-container *ngIf="textField && valueField">
+            <mat-option 
+                *ngFor="let option of data"
+                [value]="option[valueField]"
+            >
+                {{ option[textField] }}
+            </mat-option>
+        </ng-container>
+        <ng-container *ngIf="displayWithFn && valueFn">
+            <mat-option 
+                *ngFor="let option of data"
+                [value]="valueFn(option)"
+            >
+                {{ displayWithFn(option) }}
+            </mat-option>
+        </ng-container>
+    </mat-select>
+</mat-form-field>

@@ -1,0 +1,38 @@
+.toolbar {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+    .app-name {
+        margin-left: 15px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+    }
+    .spacer {
+        flex: 1 1 auto;
+    }
+}
+::ng-deep {
+    .header-profile-dropdown{
+        .mat-menu-content{
+            padding: 0 !important;
+            .mat-list-base {
+                padding-top: 0;
+                .mat-list-item-content {
+                    padding-right: 30px;
+                    .name {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

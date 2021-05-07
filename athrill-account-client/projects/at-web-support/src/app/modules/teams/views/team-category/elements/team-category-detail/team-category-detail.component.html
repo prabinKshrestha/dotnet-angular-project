@@ -1,0 +1,24 @@
+<at-assets-detail-dialog
+    [title]="'Team Category Detail'"
+>
+    <div class="detail-group">
+        <h5 class="label">Name</h5>
+        <div class="value">{{ data.Name }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Orientation</h5>
+        <div class="value">{{ data.Orientation }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Short Description</h5>
+        <div class="value">{{ data.ShortDescription }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Publish Status</h5>
+        <div class="value">{{ data.IsPublished ? "Yes" : "No" }}</div>
+    </div>
+    <div class="detail-group">
+        <h5 class="label">Addded Date</h5>
+        <div class="value">{{ data.CreatedOn | atLocalTime : 'detail' }}</div>
+    </div>
+</at-assets-detail-dialog>

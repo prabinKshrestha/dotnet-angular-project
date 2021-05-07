@@ -1,0 +1,25 @@
+.wrapper{
+    margin: 20px 0px;
+    &.ng-invalid-touched{
+        .label{
+            // TODO :Use theme
+            color: #f44336;
+        }
+    }
+    .label{
+        font-weight: 400;
+        pointer-events: none;
+        margin-bottom: 3px;
+        margin-left: 10px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+    .body{
+       ::ng-deep{
+            .angular-editor-textarea{
+                height: 250px;
+                min-height: 250px !important;
+                outline: none;
+            }
+       }
+    }
+}

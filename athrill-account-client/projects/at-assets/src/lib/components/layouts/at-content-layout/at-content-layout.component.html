@@ -1,0 +1,15 @@
+<div class="content-layout-container">
+    <div class="content-layout-container-header">
+        <div class="left">
+            <h2>{{ title }}</h2>
+        </div>
+        <ng-container *ngIf="headerRightContents" >
+            <div class="right">
+                <ng-template [ngTemplateOutlet]="headerRightContents"></ng-template>
+            </div>
+        </ng-container>
+    </div>
+    <div  class="content-layout-container-body">
+        <ng-content></ng-content>
+    </div>
+</div>

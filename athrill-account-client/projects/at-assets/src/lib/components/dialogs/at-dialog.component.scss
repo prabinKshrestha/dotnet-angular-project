@@ -1,0 +1,60 @@
+::ng-deep {
+    .at-add-edit-dialog,
+    .at-detail-dialog,
+    .at-confirmation-dialog,
+    .at-alert-dialog {
+        .mat-dialog-container {
+            padding: 0;
+            overflow-y: hidden;
+            border-radius: 0px;
+            .mat-dialog-title {
+                margin: 0;
+                .mat-toolbar {
+                    height: 50px;
+                    font-weight: 400;
+                    letter-spacing: 1px;
+                    font-size: 18px;
+                    padding: 0 20px;
+                    .spacer {
+                        flex: 1 1 auto;
+                    }
+                }
+            }
+            .mat-dialog-actions {
+                margin: 0;
+                padding: 15px 0;
+                margin-right: 20px;
+                at-assets-button-text {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+    .at-detail-dialog,
+    .at-confirmation-dialog,
+    .at-alert-dialog {
+        .mat-dialog-container {
+            .mat-dialog-content {
+                padding: 20px;
+                margin: 0;
+                width: 50vw;
+                font-size: 16px;
+                padding-top: 35px;
+            }
+        }
+    }
+    .at-add-edit-dialog {
+        .mat-dialog-container {
+            .mat-dialog-content {
+                padding: 0;
+                margin: 0;
+                width: 50vw;
+                max-height: unset;
+                overflow: unset;
+                .detail-content {
+                    position: relative;
+                }
+            }
+        }
+    }
+}

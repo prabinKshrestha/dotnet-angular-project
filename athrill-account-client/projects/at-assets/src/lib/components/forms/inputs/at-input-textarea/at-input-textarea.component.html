@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill" class="at-input-textarea">
+    <mat-label>{{ label }}</mat-label>
+    <textarea 
+        cdkTextareaAutosize
+        matInput 
+        #input="ngModel"
+        [name]="name"
+        [(ngModel)]="value" 
+        [required]="required" 
+        [maxlength]="maxLength"
+        [placeholder]="placeholder ? placeholder : label"
+        [style.height.px]="height"
+        [style.minHeight.px]="height"
+        [style.maxHeight.px]="maxHeight"
+        [ngClass]="{'at-textarea' : true, 'non-auto-size' : !autoSize, 'auto-size' : autoSize}"
+    >
+    </textarea>
+    <mat-hint *ngIf="hint" align="start">{{ hint }}</mat-hint>
+    <mat-hint *ngIf="showLengthCountHint && maxLength" align="end">{{input.value?.length || 0}} / {{ maxLength }}</mat-hint>
+</mat-form-field>

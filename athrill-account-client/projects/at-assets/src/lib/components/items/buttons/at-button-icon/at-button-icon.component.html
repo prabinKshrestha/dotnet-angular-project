@@ -1,0 +1,58 @@
+<ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'icon'">
+        <button 
+            mat-icon-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            <at-assets-icon-mat [icon]="icon"></at-assets-icon-mat>
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchCase="'fontawesome'">
+        <button 
+            mat-icon-button 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            <at-assets-icon-fa [icon]="icon"></at-assets-icon-fa>
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchCase="'fab'">
+        <button 
+            mat-fab
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            <at-assets-icon-mat [icon]="icon"></at-assets-icon-mat>
+        </button>
+    </ng-container>
+    <ng-container *ngSwitchCase="'mini-fab'">
+        <button 
+            mat-mini-fab 
+            [title]="title"
+            [type]="buttonType"
+            [ngClass]="classes"
+            [color]="color" 
+            [disabled]="disabled"  
+            [style.cursor]="cursor"
+            (click)="onButtonClick()"
+        >
+            <at-assets-icon-mat [icon]="icon"></at-assets-icon-mat>
+        </button>
+    </ng-container>
+</ng-container>

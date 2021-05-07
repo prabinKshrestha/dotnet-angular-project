@@ -1,0 +1,178 @@
+<at-assets-add-edit-dialog
+    [title]="isAdd ? 'Add Email Setting' : 'Edit Email Setting'"
+>
+    <at-assets-loader *ngIf="showLoader"></at-assets-loader>
+    <at-assets-form
+        #atForm
+        [isValid]="isValid()"
+        [subscription]="processForm()"
+        (onProcess)="processProcessing($event)"
+        (onSubmission)="processSubmission($event)"
+        (onSuccess)="processSuccess($event)"
+        (onFailure)="processFailure($event)"
+        (onCancel)="processCancel($event)"
+    >
+        <div class="form-group">
+            <at-assets-input-text
+                #Name
+                label="Name"
+                name="Name"
+                [(ngModel)]="activeModel.Name"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Name.model.invalid &&  Name.model.errors.required">
+                Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Email
+                label="Email"
+                name="Email"
+                [email]="true"
+                [(ngModel)]="activeModel.Email"
+                [required]="true"
+                [maxLength]="100"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Email.model.invalid &&  Email.model.errors?.required">
+                Email is required.
+            </at-assets-input-error>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Email.model.invalid &&  Email.model.errors?.email">
+                Email is not valid.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Password
+                label="Password"
+                name="Password"
+                [(ngModel)]="activeModel.Password"
+                [required]="true"
+                [maxLength]="200"
+                [inputType]="'password'"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Password.model.invalid &&  Password.model.errors.required">
+                Password is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SendFromName
+                label="Send From Name"
+                name="SendFromName"
+                [(ngModel)]="activeModel.SendFromName"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && SendFromName.model.invalid &&  SendFromName.model.errors.required">
+                Send From Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #ReplyToName
+                label="Reply To Name"
+                name="ReplyToName"
+                [(ngModel)]="activeModel.ReplyToName"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && ReplyToName.model.invalid &&  ReplyToName.model.errors.required">
+                Reply To Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #ReplyToEmail
+                label="Reply To Email"
+                name="ReplyToEmail"
+                [email]="true"
+                [(ngModel)]="activeModel.ReplyToEmail"
+                [required]="true"
+                [maxLength]="100"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && ReplyToEmail.model.invalid &&  ReplyToEmail.model.errors?.required">
+                Reply To Email is required.
+            </at-assets-input-error>
+            <at-assets-input-error *ngIf="atForm.form.submitted && ReplyToEmail.model.invalid &&  ReplyToEmail.model.errors?.email">
+                Reply To Email is not valid.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Host
+                label="Host"
+                name="Host"
+                [(ngModel)]="activeModel.Host"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Host.model.invalid &&  Host.model.errors.required">
+                Host is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-number
+                #Port
+                label="Port"
+                name="Port"
+                [(ngModel)]="activeModel.Port"
+                [required]="true"
+                [min]="1"
+            >
+            </at-assets-input-number>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Port.model.invalid &&  Port.model.errors.required">
+                Port is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-checkbox
+                #IsSSL
+                label="SSL Status"
+                name="IsSSL"
+                [(ngModel)]="activeModel.IsSSL"
+            >
+            </at-assets-input-checkbox>
+        </div>
+        <div class="form-group">
+            <at-assets-input-checkbox
+                #IsDefault
+                label="Default Status"
+                name="IsDefault"
+                [(ngModel)]="activeModel.IsDefault"
+            >
+            </at-assets-input-checkbox>
+        </div>
+        <div class="form-group">
+            <at-assets-input-checkbox
+                #IsPublished
+                label="Published Status"
+                name="IsPublished"
+                [(ngModel)]="activeModel.IsPublished"
+            >
+            </at-assets-input-checkbox>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #Description
+                label="Description"
+                name="Description"
+                [(ngModel)]="activeModel.Description"
+                [required]="true"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Description.model.invalid && Description.model.errors.required">
+                Description is required.
+            </at-assets-input-error>
+        </div>
+    </at-assets-form>
+</at-assets-add-edit-dialog>

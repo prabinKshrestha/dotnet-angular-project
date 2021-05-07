@@ -1,0 +1,55 @@
+@import "~@angular/material/theming";
+
+@import "at-theme.scss";
+
+@import "../palettes/at-pink-green-palette.scss";
+@import "../palettes/at-orange-blue-palette.scss";
+@import "../palettes/at-darkblue-brown-palette.scss";
+
+@include mat-core();
+
+$at-pink-green-primary: mat-palette($at-pink, $at-pink-default, $at-pink-light, $at-pink-dark);
+$at-pink-green-accent: mat-palette($at-green, $at-green-default, $at-green-light, $at-green-dark);
+$at-pink-green-warn: mat-palette($mat-red);
+$at-pink-green-light-theme: mat-light-theme($at-pink-green-primary, $at-pink-green-accent, $at-pink-green-warn);
+
+@mixin at-pink-green-theme($theme) {
+    @include at-theme($theme, $at-pink-default, $at-pink-light, $at-pink-dark, $at-green-default, $at-green-light, $at-green-dark);
+}
+
+:root {
+    @include angular-material-theme($at-pink-green-light-theme);
+    @include at-pink-green-theme($at-pink-green-light-theme);
+}
+
+$at-blue-orange-primary: mat-palette($at-blue, $at-blue-default, $at-blue-light, $at-blue-dark);
+$at-blue-orange-accent: mat-palette($at-orange, $at-orange-default, $at-orange-light, $at-orange-dark);
+$at-blue-orange-warn: mat-palette($mat-red);
+$at-blue-orange-light-theme: mat-light-theme($at-blue-orange-primary, $at-blue-orange-accent, $at-blue-orange-warn);
+
+@mixin at-blue-orange-theme($theme) {
+    @include at-theme($theme, $at-blue-default, $at-blue-light, $at-blue-dark, $at-orange-default, $at-orange-light, $at-orange-dark);
+}
+
+:root {
+    .at-blue-orange-theme {
+        @include angular-material-theme($at-blue-orange-light-theme);
+        @include at-blue-orange-theme($at-blue-orange-light-theme);
+    }
+}
+
+$at-darkblue-brown-primary: mat-palette($at-darkblue, $at-darkblue-default, $at-darkblue-light, $at-darkblue-dark);
+$at-darkblue-brown-accent: mat-palette($at-brown, $at-brown-default, $at-brown-light, $at-brown-dark);
+$at-darkblue-brown-warn: mat-palette($mat-red);
+$at-darkblue-brown-light-theme: mat-light-theme($at-darkblue-brown-primary, $at-darkblue-brown-accent, $at-darkblue-brown-warn);
+
+@mixin at-darkblue-brown-theme($theme) {
+    @include at-theme($theme, $at-darkblue-default, $at-darkblue-light, $at-darkblue-dark, $at-brown-default, $at-brown-light, $at-brown-dark);
+}
+
+:root {
+    .at-darkblue-brown-theme {
+        @include angular-material-theme($at-darkblue-brown-light-theme);
+        @include at-darkblue-brown-theme($at-darkblue-brown-light-theme);
+    }
+}

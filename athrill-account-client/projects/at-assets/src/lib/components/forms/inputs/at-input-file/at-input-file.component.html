@@ -1,0 +1,30 @@
+<mat-form-field appearance="fill" class="at-input-file">
+    <mat-label>{{ label }}</mat-label>
+    <input 
+        #input="ngModel"
+        matInput
+        [name]="name"
+        [(ngModel)]="fileName" 
+        [required]="required"
+        readonly
+        [placeholder]="placeholder ? placeholder : label">
+    <div class="suffix" matSuffix>
+        <at-assets-button-icon
+            *ngIf="fileName && fileName.trim() != ''"
+            [icon]="'cloud_off'"
+            [title]="'Remove'"
+            (onClick)="onRemoveFile()"
+        ></at-assets-button-icon>
+        <at-assets-button-icon
+            [icon]="'folder_open'"
+            [title]="'Upload'"
+            (onClick)="inputFile.click()"
+        ></at-assets-button-icon>
+    </div>
+    <input 
+        #inputFile
+        (change)="onFileChange($event)"
+        [hidden]="true"
+        [accept]="accept"
+        type="file">
+</mat-form-field>

@@ -1,0 +1,204 @@
+<at-assets-add-edit-dialog
+    [title]="isAdd ? 'Add Team Member' : 'Edit Team Member'"
+>
+    <at-assets-loader *ngIf="showLoader"></at-assets-loader>
+    <at-assets-form
+        #atForm
+        [isValid]="isValid()"
+        [subscription]="processForm()"
+        (onProcess)="processProcessing($event)"
+        (onSubmission)="processSubmission($event)"
+        (onSuccess)="processSuccess($event)"
+        (onFailure)="processFailure($event)"
+        (onCancel)="processCancel($event)"
+    >
+        <div class="form-group">
+            <at-assets-input-text
+                #Name
+                label="Name"
+                name="Name"
+                [(ngModel)]="activeModel.Name"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Name.model.invalid &&  Name.model.errors.required">
+                Name is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Email
+                label="Email"
+                name="Email"
+                [email]="true"
+                [(ngModel)]="activeModel.Email"
+                [required]="true"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Email.model.invalid &&  Email.model.errors?.required">
+                Email is required.
+            </at-assets-input-error>
+            <at-assets-input-error *ngIf="atForm.form.submitted && Email.model.invalid &&  Email.model.errors?.email">
+                Email is not valid.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Role
+                label="Role"
+                name="Role"
+                [(ngModel)]="activeModel.Role"
+                [maxLength]="400"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Position
+                label="Position"
+                name="Position"
+                [(ngModel)]="activeModel.Position"
+                [maxLength]="400"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #Quotation
+                label="Quotation"
+                name="Quotation"
+                [(ngModel)]="activeModel.Quotation"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+        </div>
+        <div class="form-group">
+            <at-assets-input-multi-select
+                #TeamCategoryIds
+                label="Team Category"
+                name="TeamCategoryIds"
+                [(ngModel)]="activeModel.TeamCategoryIds"
+                [required]="true"
+                [data]="teamCategories"
+                [textField]="'Name'"
+                [valueField]="'Id'"
+            >
+            </at-assets-input-multi-select>
+            <at-assets-input-error *ngIf="atForm.form.submitted && TeamCategoryIds.model.invalid && (!activeModel.TeamCategoryIds || activeModel.TeamCategoryIds.length < 1)">
+                At least one Team Category is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #PhoneNumber
+                label="Phone Number"
+                name="PhoneNumber"
+                [(ngModel)]="activeModel.PhoneNumber"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #FacebookLink
+                label="Facebook Link"
+                name="FacebookLink"
+                [(ngModel)]="activeModel.FacebookLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #InstagramLink
+                label="Instagram Link"
+                name="InstagramLink"
+                [(ngModel)]="activeModel.InstagramLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #SkypeLink
+                label="Skype Link"
+                name="SkypeLink"
+                [(ngModel)]="activeModel.SkypeLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #LinkedInLink
+                label="LinkedIn Link"
+                name="LinkedInLink"
+                [(ngModel)]="activeModel.LinkedInLink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Twiterlink
+                label="Twiter Link"
+                name="Twiterlink"
+                [(ngModel)]="activeModel.Twiterlink"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-text
+                #Viber
+                label="Viber"
+                name="Viber"
+                [(ngModel)]="activeModel.Viber"
+                [maxLength]="200"
+            >
+            </at-assets-input-text>
+        </div>
+        <div class="form-group">
+            <at-assets-input-file
+                #file
+                label="Image"
+                name="Image"
+                [existingFile]="data.ImageName"
+                [(atFileModel)]="activeModel.ImageFile"
+                [(isFileChanged)]="activeModel.IsImageChanged"
+                [accept]="'image/*'"
+                [required]="true"
+            >
+            </at-assets-input-file>
+            <at-assets-input-error *ngIf="atForm.form.submitted && !file.hasFile">
+                Image is required.
+            </at-assets-input-error>
+        </div>
+        <div class="form-group">
+            <at-assets-input-checkbox
+                #IsPublished
+                label="Publish Status"
+                name="IsPublished"
+                [(ngModel)]="activeModel.IsPublished"
+            >
+            </at-assets-input-checkbox>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #ShortDescription
+                label="Short Description"
+                name="ShortDescription"
+                [(ngModel)]="activeModel.ShortDescription"
+                [maxLength]="600"
+            >
+            </at-assets-input-textarea>
+        </div>
+        <div class="form-group">
+            <at-assets-input-textarea
+                #Description
+                label="Description"
+                name="Description"
+                [(ngModel)]="activeModel.Description"
+                [maxLength]="4000"
+            >
+            </at-assets-input-textarea>
+        </div>
+    </at-assets-form>
+</at-assets-add-edit-dialog>

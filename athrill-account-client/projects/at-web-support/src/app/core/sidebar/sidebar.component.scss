@@ -1,0 +1,24 @@
+.mat-list {
+    .mat-list-item {
+        font-size: 15px;
+        height: 40px;
+        at-assets-icon-mat, at-assets-icon-fa {
+            margin-right: 30px;
+        }
+        &.active {
+            ::ng-deep {
+                .mat-list-item-content {
+                    font-weight: 500;
+                }
+            }
+            //TOOD : must use color palate color material
+            background-color: hsla(0, 0%, 85%, 1);
+        }
+        &:hover {
+            //TOOD : must use color palate color material
+            &:not(.active){
+                background-color: hsla(0, 0%, 95%, 1);
+            }
+        }
+    }
+}

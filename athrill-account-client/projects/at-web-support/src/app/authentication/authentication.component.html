@@ -1,0 +1,17 @@
+<div class="login-page-container">
+    <div class="title">
+        <h1 *ngIf="atGlobalStore.siteSetting">{{ atGlobalStore.siteSetting.Name}}</h1>
+        <h3>Support Site</h3>
+    </div>
+    <div class="background-image">
+        <img src=" ../../../../assets//images//wave_1.png">
+    </div>
+    <div class="sub-container left">
+        <div class="floating-image">
+            <img src="./../../../assets/images//login_access.svg">
+        </div>
+    </div>
+    <div class="sub-container right">
+        <router-outlet></router-outlet>
+    </div>
+</div>
